@@ -24,6 +24,10 @@ async def rolldice(ctx):
     await ctx.send(random.choice([1,2,3,4,5,6]))
 
 @client.command()
+async def yesorno(ctx):
+    await ctx.send(random.choice(['Yes','No']))
+
+@client.command()
 async def trueorfalse(ctx):
     await ctx.send(random.choice(['True','False']))
 
