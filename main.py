@@ -9,7 +9,9 @@ from discord.ext import commands
 import random
 
 client = commands.Bot(command_prefix = '.')
-help_msg = "``` **DILEMMA HELP CENTER** \n 1. .chanceit <event> - returns the probability of said event happening \n 2. .coinflip - returns the outcome of a coin flip \n 3. .rolldice - returns the outcome of rolling a dice \n 4. .trueorfalse <statement> - returns whether the said statement is true or false \n 5. .yesorno <question> - answers yes or no to said question \n 6. .delete <amount> - clears entered amount of messages in the channel \n 7. .help - shows this message```"
+client.remove_command('help')
+help_msg = "``` DILEMMA HELP CENTER \n\n 1. .chanceit <event> - returns the probability of said event happening \n 2. .coinflip - returns the outcome of a coin flip \n 3. .rolldice - returns the outcome of rolling a dice \n 4. .trueorfalse <statement> - returns whether the said statement is true or false \n 5. .yesorno <question> - answers yes or no to said question \n 6. .delete <amount> - clears entered amount of messages in the channel \n 7. .help - shows this message```"
+
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Game('.<command>'))
