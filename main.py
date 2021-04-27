@@ -14,7 +14,7 @@ help_msg = "``` DILEMMA HELP CENTER \n\n 1. .chanceit <event> - returns the prob
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Game('.<command>'))
+    await client.change_presence(activity=discord.Game('.help'))
     print('Bot is up and running')
 
 @client.command()
