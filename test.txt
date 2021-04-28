@@ -3,5 +3,6 @@
 3. .rolldice - returns the outcome of rolling a dice
 4. .trueorfalse <statement> - returns whether the said statement is true or false
 5. .yesorno <question> - answers yes or no to said question
-6. .delete <amount> - clears entered amount of messages in the channel
-7. .help - shows this message
+6. .match <name1>, <name2> - Returns compatibility of two names
+7. .delete <amount> - clears entered amount of messages in the channel
+8. .help - shows this message

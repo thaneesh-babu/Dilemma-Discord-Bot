@@ -6,6 +6,7 @@ of two ppl, random name generator, probability generator,
 import discord
 from discord.ext import commands
 import random
+from match import matchingAlgo
 
 client = commands.Bot(command_prefix = '.')
 client.remove_command('help')
@@ -14,6 +15,14 @@ client.remove_command('help')
 async def on_ready():
     await client.change_presence(activity=discord.Game('.help'))
     print('Bot is up and running')
+
+@client.event
+async def on_message(message):
+    
+    if message.content.startswith('.match'):
+        matching_percent = matchingAlgo(message.content)
+
+        await message.channel.send("Compatibility of entered names: {}".format(matching_percent))
 
 @client.command()
 async def coinflip(ctx):
@@ -53,10 +62,12 @@ async def help(ctx):
     embed.add_field(name='.rolldice', value='Returns the outcome of rolling a dice', inline=False)
     embed.add_field(name='.trueorfalse <statement>', value='Returns whether the said statement is true or false', inline=False)
     embed.add_field(name='.yesorno <question>', value='Answers yes or no to said question', inline=False)
+    embed.add_field(name='.match <name1>, <name2>', value='Returns compatibility of two names', inline=False)
     embed.add_field(name='.delete <amount>', value='Clears entered amount of messages in the channel', inline=False)
     embed.add_field(name='.help', value='Displays this message', inline=False)
 
     await ctx.send(embed=embed)
+
 
 
 
