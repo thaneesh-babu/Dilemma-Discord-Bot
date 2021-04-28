@@ -1,0 +1,7 @@
+1. .chanceit <event> - returns the probability of said event happening
+2. .coinflip - returns the outcome of a flipping a coin
+3. .rolldice - returns the outcome of rolling a dice
+4. .trueorfalse <statement> - returns whether the said statement is true or false
+5. .yesorno <question> - answers yes or no to said question
+6. .delete <amount> - clears entered amount of messages in the channel
+7. .help - shows this message
