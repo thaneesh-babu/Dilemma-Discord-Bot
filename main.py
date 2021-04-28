@@ -1,5 +1,4 @@
 '''
-Create a help function where all possible commands are listed
 Commands: coinflip, trueorfalse, person 1 or person 2 to break arguments, matcher - compatibility
 of two ppl, random name generator, probability generator, 
  '''
@@ -10,7 +9,6 @@ import random
 
 client = commands.Bot(command_prefix = '.')
 client.remove_command('help')
-help_msg = "``` DILEMMA HELP CENTER \n\n 1. .chanceit <event> - returns the probability of said event happening \n 2. .coinflip - returns the outcome of a coin flip \n 3. .rolldice - returns the outcome of rolling a dice \n 4. .trueorfalse <statement> - returns whether the said statement is true or false \n 5. .yesorno <question> - answers yes or no to said question \n 6. .delete <amount> - clears entered amount of messages in the channel \n 7. .help - shows this message```"
 
 @client.event
 async def on_ready():
@@ -43,8 +41,22 @@ async def delete(ctx, amount=1):
 
 @client.command()
 async def help(ctx):
-    await ctx.send(help_msg)
+    embed = discord.Embed(
+        colour = discord.Colour.gold()
+    )
 
+    embed.set_footer(text="For more information, contact the bot's creator: BinaryBorder#0015")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/836241107779452948/836550937731661854/dilemmabotpfp.png")
+    embed.set_author(name="DILEMMA BOT HELP CENTER")
+    embed.add_field(name='.chanceit <event>', value='Returns the probability of said event happening', inline=False)
+    embed.add_field(name='.coinflip', value='Returns the outcome of flipping a coin', inline=False)
+    embed.add_field(name='.rolldice', value='Returns the outcome of rolling a dice', inline=False)
+    embed.add_field(name='.trueorfalse <statement>', value='Returns whether the said statement is true or false', inline=False)
+    embed.add_field(name='.yesorno <question>', value='Answers yes or no to said question', inline=False)
+    embed.add_field(name='.delete <amount>', value='Clears entered amount of messages in the channel', inline=False)
+    embed.add_field(name='.help', value='Displays this message', inline=False)
+
+    await ctx.send(embed=embed)
 
 
 
