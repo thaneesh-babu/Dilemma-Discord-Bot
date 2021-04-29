@@ -1,0 +1,4 @@
+git+https://github.com/thaneesh-babu/dilemma-bot
+PyNaCl==1.3.0
+random
+dnspython==1.16.0
